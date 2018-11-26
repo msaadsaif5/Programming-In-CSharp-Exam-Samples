@@ -6,8 +6,14 @@ namespace Types
     {
         static void Main(string[] args)
         {
-            //ExternSample.First();
+            ExternSample.First();
             ExternSample.Second();
+
+            TypeConversions.FloatConversion();
+            TypeConversions.IntegerConversion();
+            TypeConversions.ArrayConversion();
+
+            TypeConversions.ReferenceTypeConversion();
 
             Console.ReadLine();
         }
