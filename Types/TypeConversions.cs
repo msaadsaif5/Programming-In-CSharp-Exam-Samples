@@ -51,6 +51,33 @@ namespace Types
 
             Employee[] employeesConverted = (Employee[])persons;
         }
+
+        public static void SystemConverstionTest()
+        {
+            float value = 9.5F;
+
+            //round off rules: 
+            //if decimal value is less than 5 then round to previous value
+            //if decimal value is greater than 5, then round to next value
+            //if decimal value is exactly 5 then round to nearest even number
+
+            int i = Convert.ToInt32(value);
+            Console.WriteLine($"9.5 converted to int is {i}");
+
+            value = 10.5F;
+            i = Convert.ToInt32(value);
+            Console.WriteLine($"10.5 converted to int is {i}");
+        }
+
+        public static void ByteConversion()
+        {
+            int i = 45;
+            byte[] bytes = BitConverter.GetBytes(i);
+
+            var isLittleEndian = BitConverter.IsLittleEndian;
+
+            i = BitConverter.ToInt32(bytes, 0);
+        }
     }
 
     class Person
