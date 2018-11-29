@@ -9,7 +9,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TPL", "TPL", "{AECF6A5D-071
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataParallelism", "DataParallelism\DataParallelism.csproj", "{A302FD53-04C2-47A6-B747-52E78A2A7604}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Types", "Types\Types.csproj", "{FA0E6B16-493C-49D3-9A83-35753B5DC005}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Types", "Types\Types.csproj", "{FA0E6B16-493C-49D3-9A83-35753B5DC005}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReferenceTypes", "ReferenceTypes\ReferenceTypes.csproj", "{FE2AA2E0-A69E-4255-98E1-69224B4AF2E3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +31,10 @@ Global
 		{FA0E6B16-493C-49D3-9A83-35753B5DC005}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA0E6B16-493C-49D3-9A83-35753B5DC005}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA0E6B16-493C-49D3-9A83-35753B5DC005}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE2AA2E0-A69E-4255-98E1-69224B4AF2E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE2AA2E0-A69E-4255-98E1-69224B4AF2E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE2AA2E0-A69E-4255-98E1-69224B4AF2E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE2AA2E0-A69E-4255-98E1-69224B4AF2E3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
