@@ -6,10 +6,17 @@ namespace DelegatesAndEvents
     {
         static void Main(string[] args)
         {
-            var task = new CookingTask(GetFavoriteDish);
-            task.CookForPerson(1);
-            task.CookForPerson(2);
-            task.CookForPerson(9);
+            //var task = new CookingTask(GetFavoriteDish);
+            //task.CookForPerson(1);
+            //task.CookForPerson(2);
+            //task.CookForPerson(9);
+
+            //var delegateVariables = new DelegateVariables();
+            //delegateVariables.BuyVehicle(null);
+            //delegateVariables.BuyVehicle(true);
+
+            var delegateInstance = new StaticAndInstanceDelegates();
+            delegateInstance.Run();
 
             Console.ReadLine();
         }
