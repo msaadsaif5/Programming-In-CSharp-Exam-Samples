@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using Xunit;
 
 namespace DelegatesAndEvents
 {
-    class DelegateVariables
+    public class DelegateVariables
     {
-        Action buyCar;
-        Action buyBike;
+        Func<string> buyCar;
+        Func<string> buyBike;
 
         public DelegateVariables()
         {
@@ -15,31 +17,35 @@ namespace DelegatesAndEvents
             buyBike = BuyBike;
         }
 
-        public void BuyVehicle(bool? isCarOrBike)
+        string BuyCar()
         {
-            if (isCarOrBike == null)
-            {
-                Action buyBoth = buyCar + buyBike; //can add action delegates. They will be invoked in order.
-                buyBoth();
-            }
-            else if (isCarOrBike.HasValue && isCarOrBike.Value)
-            {
-                buyCar();
-            }
-            else
-            {
-                buyBike();
-            }
+            return "Congratulations! You have bought a brand new car";
         }
 
-        void BuyCar()
+        string BuyBike()
         {
-            Console.WriteLine("Congratulations! You have bought a brand new car");
+            return "Congratulations! You have bought a brand new bike";
         }
 
-        void BuyBike()
+        [Fact]
+        public void BuyCarTest()
         {
-            Console.WriteLine("Congratulations! You have bought a brand new bike");
+            Assert.Equal("Congratulations! You have bought a brand new car", buyCar());
+        }
+
+        [Fact]
+        public void BuyBikeTest()
+        {
+            Assert.Equal("Congratulations! You have bought a brand new bike", buyBike());
+        }
+
+        [Fact]
+        public void AddDelegatesTest()
+        {
+            Func<string> buyBoth = buyCar + buyBike; //can add delegates. They will be invoked in order.
+            var results = buyBoth.GetInvocationList().Select(d => d.DynamicInvoke()).ToArray();
+            Assert.Equal("Congratulations! You have bought a brand new car", results[0]);
+            Assert.Equal("Congratulations! You have bought a brand new bike", results[1]);
         }
     }
 }

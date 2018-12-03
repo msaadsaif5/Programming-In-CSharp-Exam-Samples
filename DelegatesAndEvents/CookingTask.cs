@@ -1,25 +1,51 @@
 ﻿using System;
 using System.Threading;
+using Xunit;
 
 namespace DelegatesAndEvents
 {
-    class CookingTask
+    public class CookingTask
     {
-        public delegate string GetFavoriteDish(long personId);
+        public delegate string GetFavoriteDishDelegate(long personId);
 
-        GetFavoriteDish getFavDish;
+        GetFavoriteDishDelegate getFavDish;
 
-        public CookingTask(GetFavoriteDish getFavoriteDish)
+        public CookingTask()
         {
-            getFavDish = getFavoriteDish;
+            getFavDish = GetFavoriteDish;
         }
 
-        public void CookForPerson(long personId)
+        public bool CookForPerson(long personId)
         {
             string dish = getFavDish(personId);
             Console.WriteLine("Cooking...");
-            Thread.Sleep(1000 * 5);
+            Thread.Sleep(1000);
             Console.WriteLine($"Cooked {dish} for {personId}");
+            return true;
+        }
+
+        [Theory]
+        [InlineData(1)]
+        [InlineData(2)]
+        [InlineData(4)]
+        public void CookingTaskTest(int personId)
+        {
+            Assert.True(CookForPerson(personId));
+        }
+
+        string GetFavoriteDish(long personId)
+        {
+            switch (personId)
+            {
+                case 1:
+                    return "Noodles";
+                case 2:
+                    return "Biryani";
+                case 3:
+                    return "Fish";
+                default:
+                    return "Ice Cream";
+            }
         }
     }
 }
